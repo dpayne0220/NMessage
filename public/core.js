@@ -9,6 +9,9 @@ function mainController($scope, $http) {
     $http.get('/api/message')
         .success(function(data) {
             $scope.messages = data;
+            
+            $scope.deets = '{ "timestamp": "22","sender": "User" }';
+            //data.timestamp;
             console.log(data);
             $scope.getMsgs(); //longPolling in process
         })
@@ -18,8 +21,10 @@ function mainController($scope, $http) {
 }
 //create message
     $scope.createMsg = function() {
-        alert(JSON.stringify($scope.formData));
-        $http.post('/api/message', $scope.formData)
+        //($scope.timestamp);
+        for (var attrname in $scope.formData) { $scope.deets[attrname] = $scope.formData[attrname]; }
+        alert(JSON.stringify($scope.deets));
+        $http.post('/api/message', $scope.deets)
             .success(function(data) {
                 $scope.formData = {}; // clear the form so our user is ready to enter another
                 //$scope.messages = data;
