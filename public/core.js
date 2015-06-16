@@ -5,15 +5,17 @@ function mainController($scope, $http) {
     $scope.formData = {};
 
 //get messages
+    $scope.getMsgs = function() {
     $http.get('/api/message')
         .success(function(data) {
             $scope.messages = data;
             console.log(data);
+            $scope.getMsgs(); //longPolling in process
         })
         .error(function(data) {
             console.log('Error: ' + data);
         });
-
+}
 //create message
     $scope.createMsg = function() {
         alert(JSON.stringify($scope.formData));
@@ -26,6 +28,7 @@ function mainController($scope, $http) {
             .error(function(data) {
                 console.log('Error: ' + data);
             });
+
     };
 
 //delete message
