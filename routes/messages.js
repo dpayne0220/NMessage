@@ -25,7 +25,7 @@ router.route('/message')
     });
 
 router.route('/message/:id')
-  .delete(function(req, res) {
+  .delete(function(req, res, next) {
     Message.remove({
           _id: req.params.id
         }, function(err) {

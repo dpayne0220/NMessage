@@ -16,6 +16,30 @@
                     padding-top:3px;
                     padding-bottom:3px;
                     border-radius: 4px; }
+        .msg_close {
+            float:right;
+            background:#dfdfdf;
+            text-decoration: none;
+        }
+
+        .msg_close {
+  background: #dfdfdf;
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  border:0px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 12px;
+  padding: 3px 5px 4px 5px;
+  text-decoration: none;
+}
+
+.msg_close:hover {
+  background: #dfdfdf;
+  border:0px;
+  text-decoration: none;
+}
     </style>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -36,7 +60,7 @@
 
                 <div class="checkbox" ng-repeat="msg in messages">
                     <label>
-                        {{ msg.sender }} - {{ msg.content }} <input type="button" value="x" ng-click="deleteMsg(msg._id)">
+                        {{ msg.sender }} - {{ msg.content }} <input type="button" value="x" ng-click="deleteMsg(msg._id)" class="msg_close"/>
                     </label>
                 </div>
              </div>
