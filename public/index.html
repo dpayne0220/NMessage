@@ -60,7 +60,7 @@
 
                 <div class="checkbox" ng-repeat="msg in messages">
                     <label>
-                        {{ msg.sender }} - {{ msg.content }} <input type="button" value="x" ng-click="deleteMsg(msg._id)" class="msg_close"/>
+                        {{ msg.sender }} - {{ msg.content }} {{ msg.recipient }}<input type="button" value="x" ng-click="deleteMsg(msg._id)" class="msg_close"/>
                     </label>
                 </div>
              </div>
@@ -70,6 +70,7 @@
             <div class="col-sm-8">
                 <form>
                     <div class="form-group">
+                        <input type="text" class="form-control input-lg text-center" placeholder="Recipient" ng-model="formData.recipient"/>
                         <input type="text" class="form-control input-lg text-center" placeholder="Say Hello!" ng-model="formData.content"/>
                     </div>
                     <!-- createMsg will create a message -->

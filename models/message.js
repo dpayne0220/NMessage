@@ -7,6 +7,7 @@ mongoose.connect(connectionString);
 var messageSchema = new Schema({
   sender: String,
   content: String,
+  recipient: String,
   timestamp: String
 });
  
